@@ -1,0 +1,62 @@
+import numpy as np
+
+a = np.arange(9, dtype=np.float64).reshape(3,3)
+print('first array:')
+print(a)
+print('\n')
+
+b = np.array([10,10,10])
+print('second array:')
+print(b)
+print('\n')
+
+print('addition of two arrays:')
+print(np.add(a,b))
+print('\n')
+
+print('subtraction of two arrays:')
+print(np.subtract(a,b))
+print('\n')
+
+print('multiplication of two arrays:')
+print(np.multiply(a,b))
+print('\n')
+
+print('divition of two arrays:')
+print(np.divide(a,b))
+print('\n')
+
+
+# define the structured data type
+data_type = [('name', 'U15'),('class',int),('height', float)]
+student_details = [
+    ('james',5, 48.5),
+    ('pit', 5, 40.11),
+    ('nail', 5, 42.10),
+    ('paul',6,42.10),
+]
+
+#strutured numpy array
+
+students = np.array(student_details, dtype = data_type)
+
+#og array
+print('original array:')
+print(students)
+
+#sort by height
+print('\nSort by height:')
+print(np.sort(students, order='height'))
+
+#sort by class
+print('\nSort by class:')
+print(np.sort(students, order='class'))
+
+#sort by name
+print('\nSort by name:')
+print(np.sort(students, order='name'))
+
+#sort by height(specific)
+print('\nSort by height with students being more than 50:')
+student2 = students[students['height']>50]
+print(student2)
